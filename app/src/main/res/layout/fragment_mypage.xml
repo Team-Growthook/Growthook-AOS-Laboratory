@@ -14,13 +14,26 @@
         tools:context=".presentation.MypageFragment">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home_main"
-            android:layout_width="0dp"
+        <CheckBox
+            android:button="@null"
+            android:background="@drawable/selector_mypage_checkbox"
+            android:id="@+id/chb_mypage_select"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#C3C4CE"
+            app:layout_constraintBottom_toTopOf="@id/rv_mypage_main"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_mypage_main"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="150dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
