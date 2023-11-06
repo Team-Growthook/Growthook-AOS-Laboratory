@@ -5,29 +5,15 @@
     >
 
     <data>
-        <import type="android.view.View" />
-        <!--        <variable-->
-        <!--            name="blurData"-->
-        <!--            type="com.example.test.BlurData" />-->
-        <variable
-            name="viewModel"
-            type="com.growthook.growthooklaboratory.presentation.blur.BlurViewModel" />
 
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
     </data>
-    <!--    android:onClick="@{() -> clickListener.onClick(blurData)}"-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layout_blur_item"
-        android:paddingVertical="5dp">
+        android:background="@drawable/item_blur_background_gray">
 
-        <include
-            layout="@layout/item_blur_list_checked"
-            android:visibility="@{}"/>
 
         <TextView
             android:id="@+id/tv_blur_item"
@@ -36,7 +22,6 @@
             android:paddingVertical="20dp"
             android:textSize="16dp"
             android:gravity="center"
-            android:background="@drawable/item_blur_background_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

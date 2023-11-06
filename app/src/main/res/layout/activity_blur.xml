@@ -21,18 +21,6 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_clicked_item"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textSize="10dp"-->
-        <!--            android:text="@{viewModel.clickedItem.id}"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            tools:text="선택된 아이템"-->
-        <!--            />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_blur"
             android:layout_width="0dp"
