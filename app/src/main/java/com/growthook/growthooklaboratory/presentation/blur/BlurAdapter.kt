@@ -3,6 +3,7 @@ package com.growthook.growthooklaboratory.presentation.blur
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.BlurMaskFilter
 import android.icu.text.Transliterator.Position
 import android.util.Log
 import android.view.LayoutInflater
@@ -29,7 +30,7 @@ class BlurAdapter(context: Context) : RecyclerView.Adapter<BlurAdapter.BlurViewH
             binding.tvBlurItem.text = data.id
 
             binding.root.setOnClickListener {
-                selectItem(data.id, itemView)
+                selectItem(data.id, binding)
                 itemClickListener.let { it(data) }
             }
 
@@ -37,26 +38,28 @@ class BlurAdapter(context: Context) : RecyclerView.Adapter<BlurAdapter.BlurViewH
     }
     private var selectedItem = arrayListOf<String>()
 
-    fun selectItem(positionId: String, view: View) {
+    fun selectItem(positionId: String, binding: ItemBlurListBinding) {
         if (selectedItem.contains(positionId)) {
             selectedItem.removeAt(selectedItem.indexOf(positionId))
-            changeBackground(view, false)
+            changeBackground(binding, false)
             Log.d("check pop: ", positionId)
         } else {
             selectedItem.add(positionId)
-            changeBackground(view, true)
+            changeBackground(binding, true)
             Log.d("check push: ", positionId)
         }
     }
 
     @SuppressLint("ResourceType")
-    fun changeBackground(view : View, bool: Boolean) {
+    fun changeBackground(binding: ItemBlurListBinding, bool: Boolean) {
         when (bool) {
             true -> {
-                view.background = ContextCompat.getDrawable(view.context, R.drawable.item_blur_checked)
+                binding.root.background = ContextCompat.getDrawable(binding.root.context, R.drawable.item_blur_checked)
+                binding.tvBlurItem.paint.maskFilter = BlurMaskFilter(5f, BlurMaskFilter.Blur.NORMAL)
             }
             false -> {
-                view.background = ContextCompat.getDrawable(view.context, R.drawable.item_blur_background_gray)
+                binding.root.background = ContextCompat.getDrawable(binding.root.context, R.drawable.item_blur_background_gray)
+                binding.tvBlurItem.paint.maskFilter = null
             }
         }
     }
