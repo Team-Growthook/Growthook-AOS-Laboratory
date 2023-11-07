@@ -25,12 +25,12 @@ class BlurAdapter(context: Context) : RecyclerView.Adapter<BlurAdapter.BlurViewH
         private val binding: ItemBlurListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(data: BlurData) {
+        fun bind(data: BlurData) {
             binding.tvBlurItem.text = data.id
 
             binding.root.setOnClickListener {
                 selectItem(data.id, itemView)
-                itemClickListener.let { data }
+                itemClickListener.let { it(data) }
             }
 
         }
@@ -71,7 +71,7 @@ class BlurAdapter(context: Context) : RecyclerView.Adapter<BlurAdapter.BlurViewH
     override fun onBindViewHolder(holder: BlurViewHolder, position: Int) {
         val item = blurList[position]
 
-        holder.onBind(item)
+        holder.bind(item)
     }
 
     fun setBlurList(blurList: List<BlurData>) {
@@ -81,12 +81,12 @@ class BlurAdapter(context: Context) : RecyclerView.Adapter<BlurAdapter.BlurViewH
 
 
 
-    interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
-    }
-    private lateinit var itemClickListener : OnItemClickListener
+//    interface OnItemClickListener {
+//        fun onClick(v: View, position: Int)
+//    }
+    private lateinit var itemClickListener : ((BlurData) -> Unit)
 
-    fun setItemClickListener(itemClickListener: OnItemClickListener) {
+    fun setItemClickListener(itemClickListener: (BlurData) -> Unit) {
         this.itemClickListener = itemClickListener
     }
 }
