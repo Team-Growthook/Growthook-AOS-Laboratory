@@ -13,15 +13,19 @@
         android:background="#1D1F29"
         tools:context=".presentation.HomeFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="home"
-            android:textColor="@color/white"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_home_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_home" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
